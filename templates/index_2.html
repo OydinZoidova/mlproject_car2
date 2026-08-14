@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Mashina narxini bashorat qilish</title>
+
+</head>
+
+<body>
+
+<h1>Mashina narxini bashorat qilish</h1>
+
+
+<form method="POST" action="/predict">
+
+
+    <!-- Car Age -->
+
+    <label>Car Age:</label>
+
+    <input
+        type="number"
+        step="0.1"
+        name="car_age"
+        required
+    >
+
+    <br><br>
+
+
+    <!-- Mileage -->
+
+    <label>Mileage:</label>
+
+    <input
+        type="number"
+        step="1"
+        name="mileage"
+        required
+    >
+
+    <br><br>
+
+
+    <!-- Engine Size -->
+
+    <label>Engine Size:</label>
+
+    <input
+        type="number"
+        step="0.1"
+        name="engine_size"
+        required
+    >
+
+    <br><br>
+
+
+    <!-- Owners -->
+
+    <label>Number of Owners:</label>
+
+    <input
+        type="number"
+        min="0"
+        name="owners"
+        required
+    >
+
+    <br><br>
+
+
+    <!-- Automatic -->
+
+    <label>Transmission:</label>
+
+    <select name="is_automatic" required>
+
+        <option value="1">
+            Automatic
+        </option>
+
+        <option value="0">
+            Manual
+        </option>
+
+    </select>
+
+    <br><br>
+
+
+    <!-- Accident -->
+
+    <label>Has Accident:</label>
+
+    <select name="has_accident" required>
+
+        <option value="0">
+            No
+        </option>
+
+        <option value="1">
+            Yes
+        </option>
+
+    </select>
+
+    <br><br>
+
+
+    <!-- Fuel Type -->
+
+    <label>Fuel Type:</label>
+
+    <select name="fuel_type" required>
+
+        <option value="petrol">
+            Petrol
+        </option>
+
+        <option value="hybrid">
+            Hybrid
+        </option>
+
+        <option value="electric">
+            Electric
+        </option>
+
+    </select>
+
+    <br><br>
+
+
+    <!-- City Tier -->
+
+    <label>City Tier:</label>
+
+    <select name="city_tier" required>
+
+        <option value="tier1">
+            Tier 1
+        </option>
+
+        <option value="tier2">
+            Tier 2
+        </option>
+
+        <option value="tier3">
+            Tier 3
+        </option>
+
+    </select>
+
+    <br><br>
+
+
+    <button type="submit">
+        Predict
+    </button>
+
+
+</form>
+
+
+{% if natija is not none %}
+
+    <h1>Prediction Result</h1>
+
+    <p>
+        Taxmin qilingan mashina narxi:
+        <strong>${{ natija }}</strong>
+    </p>
+
+{% endif %}
+
+
+{% if error %}
+
+    <p style="color: red;">
+        Xatolik: {{ error }}
+    </p>
+
+{% endif %}
+
+
+</body>
+</html>
